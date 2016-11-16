@@ -1,83 +1,98 @@
 "use strict";
 
-var Robo = (function(oldRobo) {
+// Base Robot constructor
+function Robot() {
+	this.name = null;
+	this.weapon = null;
+	this.damage = null;
+	this.health = null;
+}
 
-	oldRobo.Combatants = {};
-
-	oldRobo.Combatants.Robot = function(name) {
-		this.health = null;
-		this.weapon = null;
-		this.name = name || "unknown";
-
-		this.toString = function() {
-			var output = [this.name,
-				" has ",
-				this.health,
-				" health.",
-				"Attacks with ",
-				this.weapon.toString()].join("");
-			return output;
-		};
-	};
-
-	oldRobo.Combatants.Robot.prototype.setWeapon = function(newWeapon) {
-		this.weapon = newWeapon;
-	}
+Robot.prototype.setName = (name) => {
+	this.name = name;
+};
 
 
-	oldRobo.Combatants.Drone = function() {
-		this.batteries = "D";
-		this.health = Math.floor(Math.random() * 50 + 520);
-		this.weapon = new oldRobo.Weapons.Howitzer();
-		this.image = "images/drone.png";
-	};
+// Robot constructors
+function Sentinel() {
+	this.type = "Sentinel";
+	this.energy = "D Batteries";
+}
 
-	oldRobo.Combatants.Cyborg = function() {
-		this.fuel = "nitrous oxide";
-		this.health = Math.floor(Math.random() * 10 + 550);
-		this.weapon = new oldRobo.Weapons.Laser();
-		this.image = "images/cyborg.jpg";
-	};
+Sentinel.prototype = new Robot();
 
-	oldRobo.Combatants.Sentinel = function() {
-		this.rocketpack = "neptunium";
-		this.health = Math.floor(Math.random() * 20 + 560);
-		this.weapon = new oldRobo.Weapons.Grenade();
-		this.image = "images/sentinel.png";
-	};
+function Cyborg() {
+	this.type = "Cyborg";
+	this.energy = "Neptunium";
+}
 
-	oldRobo.Combatants.Drone.prototype = new oldRobo.Combatants.Robot("Barney");
-	oldRobo.Combatants.Cyborg.prototype = new oldRobo.Combatants.Robot("Slade");
-	oldRobo.Combatants.Sentinel.prototype = new oldRobo.Combatants.Robot("Dale");
+Cyborg.prototype = new Robot();
 
-	oldRobo.Combatants.Drone.prototype.getBatteries = function() {
-		return this.batteries;
-	};
+function Drone() {
+	this.type = "Drone";
+	this.energy = "Cheetos";
+}
 
-	oldRobo.Combatants.Drone.prototype.makeNoise = function() {
-		console.log("Loud noises");
-	};
+Drone.prototype = new Robot();
 
-	oldRobo.Combatants.Cyborg.prototype.getFuel = function() {
-		return this.fuel;
-	};
 
-	oldRobo.Combatants.Cyborg.prototype.makeNoise = function() {
-		console.log("Loud noises");
-	};
+// Robot types
+function Bender() {
+	this.name = "Bender";
+	this.weapon = "glass bottle";
+	this.damage = Math.floor(Math.random() * 30 + 20);
+	this.health = Math.floor(Math.random() * 300 + 40);
+	this.image = "images/bender.gif";
+}
 
-	oldRobo.Combatants.Sentinel.prototype.getRocketpack = function() {
-		return this.rocketpack;
-	};
+Bender.prototype = new Sentinel();
 
-	oldRobo.Combatants.Sentinel.prototype.makeNoise = function() {
-		console.log(makeNoise);
-	};
+function Dale() {
+	this.name = "Dale";
+	this.weapon = "crush u like a lil bug";
+	this.damage = Math.floor(Math.random() * 40 + 10);
+	this.health = Math.floor(Math.random() * 500 + 20);
+	this.image = "images/dale.png";
+}
 
-	let drone = new oldRobo.Combatants.Drone();
-	let cyborg = new oldRobo.Combatants.Cyborg();
-	let sentinel = new oldRobo.Combatants.Sentinel();
+Dale.prototype = new Sentinel();
 
-	return oldRobo;
+function Jax() {
+	this.name = "Jax";
+	this.weapon = "metallic fist";
+	this.damage = Math.floor(Math.random() * 35 + 20);
+	this.health = Math.floor(Math.random() * 450 + 75);
+	this.image = "images/jax.jpg";
+}
 
-})(Robo || {});
+Jax.prototype = new Cyborg();
+
+function Wren() {
+	this.name = "Wren";
+	this.weapon = "bazooka face";
+	this.damage = Math.floor(Math.random() * 45 + 30);
+	this.health = Math.floor(Math.random() * 420 + 40);
+	this.image = "images/wren.gif";
+}
+
+Wren.prototype = new Cyborg();
+
+function Spookbro() {
+	this.name = "Spookbro";
+	this.weapon = "stealing candy";
+	this.damage = Math.floor(Math.random() * 40 + 40);
+	this.health = Math.floor(Math.random() * 500 + 15);
+	this.image = "images/spookbro.gif";
+}
+
+Spookbro.prototype = new Drone();
+
+function Catacopter() {
+	this.name = "Catacopter";
+	this.weapon = "meow-mixer";
+	this.damage = Math.floor(Math.random() * 50 + 25);
+	this.health = Math.floor(Math.random() * 490 + 10);
+	this.image = "images/catacopter.gif";
+}
+
+Catacopter.prototype = new Drone();
