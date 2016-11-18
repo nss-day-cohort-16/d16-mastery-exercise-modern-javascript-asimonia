@@ -1,48 +1,36 @@
 body {
-  font-family: "Lato", "Helvetica", "sans-serif";
-  margin: 0;
-  padding: 10px;
-  font-size: 3em;
-}
+  background-color: #000;
+  font-family: "Times New Roman", Georgia, Serif; }
 
 .field {
-  margin: 20px 0 0 0;
-}
+  margin: 20px 0 0 0; }
 
 .field__textinput {
   font-size: 1em;
   padding: 15px 0;
   text-align: center;
-  min-width: 500px;
-}
-
-
+  min-width: 500px; }
 
 /*
   Section styles
  */
-.card { 
-  display: none;
-}
+.card {
+  display: none; }
 
 .card__prompt {
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
 .card__button {
   font-size: 1.1em;
   margin: 30px 0 0 0;
-  text-align: center;
-}
-
+  text-align: center; }
 
 /*
   Button styles
  */
-
 .btn {
   text-decoration: none;
   background-color: white;
@@ -53,37 +41,30 @@ body {
   font-size: 18px;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 10px 5px;
-  min-width: 260px;
-}
+  padding: 10px 5px; }
 
 .btn--orange {
   border-color: #FF4136;
   color: white;
-  background-color: #FF4136;
-}
+  background-color: #000; }
 
 .btn--blue {
   border-color: #0074D9;
   color: white;
-  background-color: #0074D9;
-}
+  background-color: #0074D9; }
 
 .btn--yellow {
   border-color: #E4BD00;
   color: white;
-  background-color: #F3C500;
-}
+  background-color: #F3C500; }
 
 .btn--big {
   font-size: 28px;
   padding: 10px;
-  font-weight: 400;
-}
+  font-weight: 400; }
 
 .btn--small {
-  min-width: 50px;
-}
+  border: 2px solid #000; }
 
 .btn__prompt {
   background-color: white;
@@ -92,14 +73,34 @@ body {
   padding-left: 12px;
   margin-right: -10px;
   font-weight: 600;
-  background-color: #333;
-  opacity: .4;
-  border-radius: 5px 0 0 5px;
+  background-color: #FFF;
+  opacity: 1;
+  border-radius: 5px;
   left: 37px;
-  float: left;
-}
+  float: left; }
 
 .btn__text {
   padding: 0 50px 0 20px;
-  border-radius: 0 5px 5px 0;
-}
+  border-radius: 0 5px 5px 0; }
+
+/* 
+  Custom Styles 
+*/
+#battleview {
+  background-image: url("/images/pyramids.jpg");
+  background-size: 100%; }
+
+.resultsView {
+  display: none; }
+
+.avatar {
+  max-width: 30%;
+  max-height: 30%; }
+
+h3,
+h1 {
+  text-align: center;
+  color: pink;
+  text-shadow: 2px 2px 2px #fff; }
+
+/*# sourceMappingURL=quiz.css.map */
